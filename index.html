@@ -2,98 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List Application</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #task-input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        #add-task-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        #task-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-        #task-list li {
-            padding: 10px;
-            background: #f4f4f4;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .remove-btn {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My To-Do List</h1>
-    <input type="text" id="task-input" placeholder="Enter a new task">
-    <button id="add-task-btn">Add Task</button>
-    <ul id="task-list">
-        <!-- Tasks will appear here -->
-    </ul>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addButton = document.getElementById('add-task-btn');
-            const taskInput = document.getElementById('task-input');
-            const taskList = document.getElementById('task-list');
-
-            function addTask() {
-                const taskText = taskInput.value.trim();
-                
-                if (taskText === "") {
-                    alert("Please enter a task!");
-                    return;
-                }
-                
-                const li = document.createElement('li');
-                li.textContent = taskText;
-                
-                const removeBtn = document.createElement('button');
-                removeBtn.textContent = "Remove";
-                removeBtn.className = 'remove-btn';
-                
-                removeBtn.onclick = function() {
-                    taskList.removeChild(li);
-                };
-                
-                li.appendChild(removeBtn);
-                taskList.appendChild(li);
-                
-                taskInput.value = '';
-            }
-            
-            addButton.addEventListener('click', addTask);
-            
-            taskInput.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    addTask();
-                }
-            });
-        });
-    </script>
+    <div id="todo-app">
+        <h1>My To-Do List</h1>
+        <input type="text" id="task-input" placeholder="Enter a new task">
+        <button id="add-task-btn">Add Task</button>
+        <ul id="task-list">
+            <!-- Tasks will be listed here -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
