@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create list item
         const li = document.createElement('li');
         
-        // Create task text node (no separate span needed)
+        // Set text content directly on li (no span)
         li.textContent = taskText;
         
         // Create remove button
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add removal functionality
         removeBtn.onclick = function() {
-            li.remove(); // or taskList.removeChild(li)
+            taskList.removeChild(li);
         };
         
         // Append button to list item
