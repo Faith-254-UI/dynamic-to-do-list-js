@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function addTask() {
         const taskText = taskInput.value.trim();
         
-        // Check if input is empty
         if (taskText === "") {
             alert("Please enter a task!");
             return;
@@ -16,10 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create new list item
         const li = document.createElement('li');
-        
-        // Create task text span
-        const taskSpan = document.createElement('span');
-        taskSpan.textContent = taskText;
+        li.textContent = taskText;
         
         // Create remove button
         const removeBtn = document.createElement('button');
@@ -31,11 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             taskList.removeChild(li);
         };
         
-        // Append elements to li
-        li.appendChild(taskSpan);
+        // Append elements
         li.appendChild(removeBtn);
-        
-        // Add li to task list
         taskList.appendChild(li);
         
         // Clear input field
